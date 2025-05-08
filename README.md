@@ -70,6 +70,6 @@
 > void promptForBookDetails(string& title, string& author) const - 提示輸入書名和作者
 
 
-## 行畫面截圖
+## 運行畫面截圖
 
 
