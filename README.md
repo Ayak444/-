@@ -72,4 +72,4 @@
 
 ## 運行畫面截圖
 
-![image](https://github.com/Ayak444/OOCSubjecct/edit/main/readme_repository/%E9%81%8B%E8%A1%8C%E7%95%AB%E9%9D%A2.png)
+![image]([[https://github.com/Ayak444/OOCSubjecct/edit/main/readme_repository/%E9%81%8B%E8%A1%8C%E7%95%AB%E9%9D%A2.png](https://github.com/Ayak444/OOCSubjecct/blob/main/readme_repository/%E9%81%8B%E8%A1%8C%E7%95%AB%E9%9D%A2.png)](https://github.com/Ayak444/OOCSubjecct/blob/main/readme_repository/%E9%81%8B%E8%A1%8C%E7%95%AB%E9%9D%A2.png))
