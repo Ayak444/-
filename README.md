@@ -73,3 +73,6 @@
 ## 運行畫面截圖
 
 ![image](readme_repository/運行畫面.png)
+![image](readme_repository/1.png)
+![image](readme_repository/2.png)
+![image](readme_repository/3.png)
