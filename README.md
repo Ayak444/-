@@ -32,17 +32,17 @@
 
 退出系統 - 結束程式執行。
 
-##程式介紹
-Book 類別 (Book.h / Book.cpp)
-用於表示書籍，包含以下屬性與方法：
+## 程式介紹
+### Book 類別 (Book.h / Book.cpp)
+#### 用於表示書籍，包含以下屬性與方法：
 
-屬性：
+#### 屬性：
 
 string title - 書名
 
 string author - 作者
 
-方法：
+#### 方法：
 
 Book(const string& t, const string& a) - 建構子
 
@@ -52,8 +52,8 @@ string getAuthor() const - 取得作者
 
 void display() const - 顯示書籍資訊
 
-Library 類別 (Library.h / Library.cpp)
-管理書籍集合的類別。
+### Library 類別 (Library.h / Library.cpp)
+#### 管理書籍集合的類別。
 
 屬性：
 
@@ -67,8 +67,8 @@ void showAllBooks() const - 顯示所有書籍
 
 bool hasBook(const string& title) const - 判斷書籍是否存在
 
-Display 類別 (Display.h / Display.cpp)
-負責與使用者互動的介面。
+### Display 類別 (Display.h / Display.cpp)
+#### 負責與使用者互動的介面。
 
 方法：
 
