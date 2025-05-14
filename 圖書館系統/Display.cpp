@@ -1,14 +1,14 @@
 #include "Display.h"
 #include "Library.h"
-#include "Book.h"
 #include <iostream>
+
 using namespace std;
 
 void Display::showMenu() const {
     cout << "\n===== 圖書館選單 =====" << endl;
     cout << "1. 新增書籍" << endl;
     cout << "2. 顯示所有書籍" << endl;
-    cout << "3. 搜尋書籍" << endl;
+    cout << "3. 搜尋書籍（模糊搜尋）" << endl;
     cout << "4. 刪除書籍" << endl;
     cout << "5. 修改書籍" << endl;
     cout << "6. 書籍數量統計" << endl;
@@ -34,7 +34,7 @@ void Display::run(Library& library) const {
     do {
         showMenu();
         cin >> choice;
-        cin.ignore(); 
+        cin.ignore();
         switch (choice) {
         case 1: {
             string title, author, year, category;
@@ -47,13 +47,19 @@ void Display::run(Library& library) const {
             library.showAllBooks();
             break;
         case 3: {
-            string title;
-            cout << "請輸入要搜尋的書名：";
-            getline(cin, title);
-            if (library.hasBook(title))
-                cout << "書籍已找到。" << endl;
-            else
-                cout << "找不到書籍。" << endl;
+            string query;
+            cout << "請輸入要搜尋的書名或關鍵字：";
+            getline(cin, query);
+            auto results = library.searchBooks(query);
+            if (results.empty()) {
+                cout << "找不到相關書籍。" << endl;
+            }
+            else {
+                cout << "找到 " << results.size() << " 本相關書籍：" << endl;
+                for (const auto& b : results) {
+                    b.display();
+                }
+            }
             break;
         }
         case 4: {
