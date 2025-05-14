@@ -43,7 +43,7 @@ string category – 分類
 
 方法：
 
-Book(const string& t, const string& a, const string& y, const string& c) – 建構子
+> Book(const string& t, const string& a, const string& y, const string& c) – 建構子
 
 string getTitle() const – 取得書名
 
