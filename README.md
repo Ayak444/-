@@ -28,7 +28,7 @@
 ![image](readme_repository/UML.png)
 
 ## 程式介紹
-Book 類別 (Book.h / Book.cpp)
+### Book 類別 (Book.h / Book.cpp)
 用於表示書籍，包含標題、作者、年份、分類等屬性，以及存取與顯示方法
 
 屬性：
@@ -63,7 +63,7 @@ Book 類別 (Book.h / Book.cpp)
 
 > void display() const – 顯示書籍完整資訊
 
-> Library 類別 (Library.h / Library.cpp)
+### Library 類別 (Library.h / Library.cpp)
 管理書籍集合，支援新增、顯示、判斷存在、刪除、修改、排序與模糊搜尋功能
 
 屬性：
@@ -90,7 +90,7 @@ Book 類別 (Book.h / Book.cpp)
 
 > vector<Book> searchBooks(const string& query, int threshold = 2) const – 模糊搜尋書籍（Levenshtein 距離 + 關鍵字匹配）
 
-> Display 類別 (Display.h / Display.cpp)
+### Display 類別 (Display.h / Display.cpp)
 負責與使用者互動，顯示選單並根據輸入呼叫 Library 的各項功能
 
 方法：
@@ -101,7 +101,7 @@ Book 類別 (Book.h / Book.cpp)
 
 > void promptForBookDetails(string& title, string& author, string& year, string& category) const – 提示並讀取書籍詳細資訊
 
-Main 程式 (Main.cpp)
+### Main 程式 (Main.cpp)
 程式進入點，負責建立 Library 與 Display 實例，並啟動使用者介面 Main
 
 方法：
