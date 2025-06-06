@@ -5,33 +5,33 @@
 using namespace std;
 
 void Display::showMenu() const {
-    cout << "\n===== ¹Ï®ÑÀ]¿ï³æ =====" << endl;
-    cout << "1. ·s¼W®ÑÄy" << endl;
-    cout << "2. Åã¥Ü©Ò¦³®ÑÄy" << endl;
-    cout << "3. ·j´M®ÑÄy¡]¼Ò½k·j´M¡^" << endl;
-    cout << "4. §R°£®ÑÄy" << endl;
-    cout << "5. ­×§ï®ÑÄy" << endl;
-    cout << "6. ®ÑÄy¼Æ¶q²Î­p" << endl;
-    cout << "7. ®ÑÄy±Æ§Ç¡]®Ñ¦W¡^" << endl;
-    cout << "8. ®ÑÄy±Æ§Ç¡]§@ªÌ¡^" << endl;
-    cout << "0. Â÷¶}¨t²Î" << endl;
-    cout << "½Ð¿é¤J§Aªº¿ï¾Ü¡G";
+    cout << "\n===== åœ–æ›¸é¤¨é¸å–® =====" << endl;
+    cout << "1. æ–°å¢žæ›¸ç±" << endl;
+    cout << "2. é¡¯ç¤ºæ‰€æœ‰æ›¸ç±" << endl;
+    cout << "3. æœå°‹æ›¸ç±ï¼ˆæ¨¡ç³Šæœå°‹ï¼‰" << endl;
+    cout << "4. åˆªé™¤æ›¸ç±" << endl;
+    cout << "5. ä¿®æ”¹æ›¸ç±" << endl;
+    cout << "6. æ›¸ç±æ•¸é‡çµ±è¨ˆ" << endl;
+    cout << "7. æ›¸ç±æŽ’åºï¼ˆæ›¸åï¼‰" << endl;
+    cout << "8. æ›¸ç±æŽ’åºï¼ˆä½œè€…ï¼‰" << endl;
+    cout << "0. é›¢é–‹ç³»çµ±" << endl;
+    cout << "è«‹è¼¸å…¥ä½ çš„é¸æ“‡ï¼š";
 }
 
 void Display::promptForBookDetails(string& title, string& author, string& year, string& category) const {
-    cout << "½Ð¿é¤J®Ñ¦W¡G";
+    cout << "è«‹è¼¸å…¥æ›¸åï¼š";
     getline(cin, title);
-    cout << "½Ð¿é¤J§@ªÌ¡G";
+    cout << "è«‹è¼¸å…¥ä½œè€…ï¼š";
     getline(cin, author);
-    cout << "½Ð¿é¤J¥Xª©¦~¥÷¡G";
+    cout << "è«‹è¼¸å…¥å‡ºç‰ˆå¹´ä»½ï¼š";
     getline(cin, year);
-    cout << "½Ð¿é¤J¤ÀÃþ¡G";
+    cout << "è«‹è¼¸å…¥åˆ†é¡žï¼š";
     getline(cin, category);
 }
 
 void Display::run(Library& library) const {
-    int choice;
-    do {
+    int choice = -1;
+    while (choice != 0) {
         showMenu();
         cin >> choice;
         cin.ignore();
@@ -40,7 +40,7 @@ void Display::run(Library& library) const {
             string title, author, year, category;
             promptForBookDetails(title, author, year, category);
             library.addBook(Book(title, author, year, category));
-            cout << "®ÑÄy¤w·s¼W¡C" << endl;
+            cout << "æ›¸ç±å·²æ–°å¢žã€‚" << endl;
             break;
         }
         case 2:
@@ -48,14 +48,14 @@ void Display::run(Library& library) const {
             break;
         case 3: {
             string query;
-            cout << "½Ð¿é¤J­n·j´Mªº®Ñ¦W©ÎÃöÁä¦r¡G";
+            cout << "è«‹è¼¸å…¥è¦æœå°‹çš„æ›¸åæˆ–é—œéµå­—ï¼š";
             getline(cin, query);
             auto results = library.searchBooks(query);
             if (results.empty()) {
-                cout << "§ä¤£¨ì¬ÛÃö®ÑÄy¡C" << endl;
+                cout << "æ‰¾ä¸åˆ°ç›¸é—œæ›¸ç±ã€‚" << endl;
             }
             else {
-                cout << "§ä¨ì " << results.size() << " ¥»¬ÛÃö®ÑÄy¡G" << endl;
+                cout << "æ‰¾åˆ° " << results.size() << " æœ¬ç›¸é—œæ›¸ç±ï¼š" << endl;
                 for (const auto& b : results) {
                     b.display();
                 }
@@ -64,28 +64,28 @@ void Display::run(Library& library) const {
         }
         case 4: {
             string title;
-            cout << "½Ð¿é¤J­n§R°£ªº®Ñ¦W¡G";
+            cout << "è«‹è¼¸å…¥è¦åˆªé™¤çš„æ›¸åï¼š";
             getline(cin, title);
             library.removeBook(title);
             break;
         }
         case 5: {
             string title, newTitle, newAuthor, newYear, newCategory;
-            cout << "½Ð¿é¤J­n­×§ïªº®Ñ¦W¡G";
+            cout << "è«‹è¼¸å…¥è¦ä¿®æ”¹çš„æ›¸åï¼š";
             getline(cin, title);
-            cout << "½Ð¿é¤J·s®Ñ¦W¡G";
+            cout << "è«‹è¼¸å…¥æ–°æ›¸åï¼š";
             getline(cin, newTitle);
-            cout << "½Ð¿é¤J·s§@ªÌ¡G";
+            cout << "è«‹è¼¸å…¥æ–°ä½œè€…ï¼š";
             getline(cin, newAuthor);
-            cout << "½Ð¿é¤J·s¦~¥÷¡G";
+            cout << "è«‹è¼¸å…¥æ–°å¹´ä»½ï¼š";
             getline(cin, newYear);
-            cout << "½Ð¿é¤J·s¤ÀÃþ¡G";
+            cout << "è«‹è¼¸å…¥æ–°åˆ†é¡žï¼š";
             getline(cin, newCategory);
             library.editBook(title, newTitle, newAuthor, newYear, newCategory);
             break;
         }
         case 6:
-            cout << "¹Ï®ÑÀ]¥Ø«e¦@¦³ " << library.getBookCount() << " ¥»®ÑÄy¡C" << endl;
+            cout << "åœ–æ›¸é¤¨ç›®å‰å…±æœ‰ " << library.getBookCount() << " æœ¬æ›¸ç±ã€‚" << endl;
             break;
         case 7:
             library.sortBooksByTitle();
@@ -94,11 +94,11 @@ void Display::run(Library& library) const {
             library.sortBooksByAuthor();
             break;
         case 0:
-            cout << "¨t²Î§Y±N°h¥X¡A·PÁÂ¨Ï¥Î¡I" << endl;
+            cout << "ç³»çµ±å³å°‡é€€å‡ºï¼Œæ„Ÿè¬ä½¿ç”¨ï¼" << endl;
             break;
         default:
-            cout << "µL®Äªº¿ï¾Ü¡A½Ð­«·s¿é¤J¡C" << endl;
+            cout << "ç„¡æ•ˆçš„é¸æ“‡ï¼Œè«‹é‡æ–°è¼¸å…¥ã€‚" << endl;
             break;
         }
-    } while (choice != 0);
+    }
 }
